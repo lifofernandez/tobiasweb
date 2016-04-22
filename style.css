@@ -1,0 +1,17 @@
+.col{
+	display: block;
+	float:left;
+}
+.col.uno{
+	width: 70%;
+}
+.col.dos{
+	width: 29%;
+	padding-left: 10px;
+}
+
+.row{
+	display: block;
+	float:left;
+	width: 100%;
+}
