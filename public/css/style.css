@@ -1,0 +1,9 @@
+/* site overrides */
+
+img.full-width{
+	width: 100%;
+}
+
+.alineado-izq{
+	text-align: right;
+}

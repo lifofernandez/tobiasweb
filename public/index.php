@@ -7,13 +7,13 @@
 //
 
 
-/*	Template system		*/
+/*	Template system	*/
 
-require_once 'vendor/Twig-1.24.0/lib/Twig/Autoloader.php';
+require_once '../vendor/Twig-1.24.0/lib/Twig/Autoloader.php';
 Twig_Autoloader::register();
 
 // en que carpeta estan los templates
-$loader = new Twig_Loader_Filesystem('templates');
+$loader = new Twig_Loader_Filesystem('../templates');
 
 // iniciar Twig
 $twig = new Twig_Environment($loader);
@@ -23,7 +23,7 @@ $template = $twig->loadTemplate('index.tmpl');
 
 
 
-/*	Cargar .json		*/
+/*	Cargar .json	*/
 
 // llamar el archivo.json
 // contenido locar para desarrollo, cambiar cuando este aovivo
@@ -36,13 +36,13 @@ $proyectos = json_decode($proyectosJson,true);
 
 
 
-/*	Render		*/
+/*	Render	*/
 
 echo $template->render($proyectos);
 
 
 
-/* Leesto!		*/
+/* Leesto!	*/
 
 
 //	//	//	//	//	//	//	//
