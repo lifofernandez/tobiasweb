@@ -2,7 +2,7 @@
 
 //	//	//	//	//
 //	Tobi Web
-//	php para traer desde Behanse data en .json y pasarla por Tiwg
+//	php para traer desde Behanse data en .json y pasarla por Twig
 //
 //
 
@@ -26,10 +26,11 @@ $template = $twig->loadTemplate('index.tmpl');
 /*	Cargar .json		*/
 
 // llamar el archivo.json
+// contenido locar para desarrollo, cambiar cuando este aovivo
 $proyectosJson = file_get_contents("projects.json");
-//$proyectosJson = file_get_contents('https://www.behance.net/v2/projects/?q=tobiasbeltran&api_key=****');
+// $proyectosJson = file_get_contents('https://www.behance.net/v2/projects/?q=tobiasbeltran&api_key=****');
 
-// decodificarlo
+// decode json to php objet array
 // (si $2param = 'true', devuelve en formato array)
 $proyectos = json_decode($proyectosJson,true);
 
