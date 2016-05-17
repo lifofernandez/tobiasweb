@@ -1,9 +1,13 @@
 /* site overrides */
-
-img.full-width{
-	width: 100%;
+body {
+  position: relative;
 }
+
+
 
 .alineado-izq{
 	text-align: right;
+}
+.footer{
+	margin-top: 100px;
 }

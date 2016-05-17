@@ -6,6 +6,7 @@
 //
 //
 
+$api_key = '*****';
 
 /*	Template system	*/
 
@@ -18,17 +19,27 @@ $loader = new Twig_Loader_Filesystem('../templates');
 // iniciar Twig
 $twig = new Twig_Environment($loader);
 
+// Custom Filter 'slug'
+$filter = new Twig_SimpleFilter('slug', function ($string) {
+	$string = transliterator_transliterate("Any-Latin; NFD; [:Nonspacing Mark:]
+		Remove; NFC; [:Punctuation:] Remove; Lower();", $string);
+    $string = preg_replace('/[-\s]+/', '-', $string);
+    $string = trim($string, '-');
+    return $string;
+});
+$twig->addFilter($filter);
+
 // cargar template
-$template = $twig->loadTemplate('index.tmpl');
+$template = $twig->loadTemplate('index.html.twig');
 
 
 
 /*	Cargar .json	*/
 
 // llamar el archivo.json
-// contenido locar para desarrollo, cambiar cuando este aovivo
-$proyectosJson = file_get_contents("projects.json");
-// $proyectosJson = file_get_contents('https://www.behance.net/v2/projects/?q=tobiasbeltran&api_key=****');
+// contenido local para desarrollo, cambiar cuando este aovivo
+//$proyectosJson = file_get_contents("projects.json");
+$proyectosJson = file_get_contents('https://www.behance.net/v2/projects/?q=tobiasbeltran&api_key='.$api_key);
 
 // decode json to php objet array
 // (si $2param = 'true', devuelve en formato array)

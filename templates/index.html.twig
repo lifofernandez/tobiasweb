@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Tobi's Projects | Home</title>
+
+		<!-- Google Fonts -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+		<!-- Bootstrap CSS minified -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+		<!-- Yeti Bootswatch CSS minified -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-yxFy3Tt84CcGRj9UI7RA25hoUMpUPoFzcdPtK3hBdNgEGnh9FdKgMVM+lbAZTKN2" crossorigin="anonymous">
+
+		<!-- site css overrides -->
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+
+
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+
+				<header class="header col-md-4">
+					<div id="clavar">
+
+						<nav id="navbar">
+							<div class="page-header">
+								<h1><small>Proyectos</small></h1>
+							</div>
+							<ul class="nav nav-pills nav-stacked">
+								{% for project in projects %}
+								<li>
+									<a href="#{{ project.name|slug }}" >
+										{{ project.name }}
+									</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</nav>
+
+						<div class="page-header">
+								<h1><small>Proyectos</small></h1>
+						</div>
+						<p>Soy el Tobem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</header>
+
+				<section class="main col-md-8">
+				<article>
+				<header  class="page-header">
+					<h1>Tobias Beltran <small>DG</small></h1>
+				</header>
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">Panel title</div>
+					<div class="panel-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+						do eiusmod	tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+						nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+						reprehenderit in voluptate velit esse cillum dolore eu fugiat
+						nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+						sunt in culpa qui officia deserunt mollit anim id est laborum.</p> </div>
+					<div class="panel-footer">Panel footer</div>
+				</div>
+
+				</article>
+
+					{% for project in projects %}
+						<article id="{{ project.id }}">
+
+							<header class="page-header">
+								<h1 id="{{ project.name|slug }}">
+									<a href="{{ project.url }}">{{ project.name }}</a>
+
+								</h1>
+							</header>
+
+							<a target="_BLANK" href="{{ project.url }}">
+								<img class="img-responsive" src="{{ project.covers.original }}">
+							</a>
+
+
+						</article>
+					{% endfor %}
+				</section>
+
+			</div> <!-- .row -->
+
+
+
+			<footer class="row footer">
+				<div class="col-md-6">
+					<p>© 2016 el Tob</p>
+				</div>
+				<div class="col-md-6 source alineado-izq">
+					<p>El código de esta página está <a target="_BLANK" href="https://github.com/lifofernandez/tobiasweb">acá</a>.</p>
+				</div>
+
+			</footer>
+
+			<script
+				src="https://code.jquery.com/jquery-2.2.3.min.js"
+				integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+				crossorigin="anonymous"></script>
+
+			<!-- Bootstrap JS minified -->
+			<script
+				src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+				integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+				crossorigin="anonymous"></script>
+
+			<!-- site js -->
+			<script type="text/javascript" src="js/site.js"></script>
+		</div> <!-- .container -->
+	</body>
+</html>
